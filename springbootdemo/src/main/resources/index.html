@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>springboot + websocket+广播</title>
+</head>
+<body onload="disconnect()">
+<div >
+    <button id="connect" class="connect" onclick="connect();">链接</button>
+      <button id="disconnect" class="disconnect" onclick="disconnect();">断开链接</button>
+</div>
+<div id="conversationDiv">
+    <label>输入你的名字</label><input tupe="text" id="name"/>
+    <button id="sendName" onclick="sendName()" >发生</button>
+    <p id="response"></p>
+</div>
+
+</body>
+</html>
+<script th:src="@{stomp.js}"></script>
+<script th:src="@{jquery-3.2.1.min.js}"></script>
+<script th:src="@{sockjs.js}"></script>
+
+<script type="text/javascript">
+    var stompClient = null ;
+    function sendName() {
+     var name = $("#name").val();
+     stompClient.send('/welcome',JSON.stringify({'name':name}));
+    }
+    function setConnect(connected) {
+       document.getElementById("connect").disabled = connected;
+        document.getElementById("disconnect").disabled = connected;
+        document.getElementById("conversationDiv").style.visibility
+            = connected?'visible':'hidden';
+        $("#response").html();
+    }
+    function connect() {
+        var socket = new SockJS('/endpointWisely');
+        stompClient = Stomp.over(socket);
+        stompClient.connect({},function (frame) {
+            setConnect(true);
+            console.log("connected:"+frame);
+            stompClient.subscribe('/topic/getResponse',function (response) {
+                showResponse(response);
+            });
+        });
+    }
+    function disconnect() {
+        if(stompClient!=null){
+            stompClient.disconnect() ;
+        }
+        setConnect(false);
+        console.log("disconnect");
+    }
+    function  showResponse(message) {
+        $("#response").html(message);
+    }
+</script>

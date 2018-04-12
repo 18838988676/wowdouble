@@ -1,0 +1,63 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.wowoduble.springbootdemo.config.RedisConfig",
+      "name": "redis",
+      "type": "com.wowoduble.springbootdemo.config.RedisConfig"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.wowoduble.springbootdemo.config.RedisConfig",
+      "name": "redis.auth",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wowoduble.springbootdemo.config.RedisConfig",
+      "name": "redis.host",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wowoduble.springbootdemo.config.RedisConfig",
+      "defaultValue": 0,
+      "name": "redis.max-active",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.wowoduble.springbootdemo.config.RedisConfig",
+      "defaultValue": 0,
+      "name": "redis.max-idle",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.wowoduble.springbootdemo.config.RedisConfig",
+      "defaultValue": 0,
+      "name": "redis.max-wait",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.wowoduble.springbootdemo.config.RedisConfig",
+      "defaultValue": 0,
+      "name": "redis.port",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.wowoduble.springbootdemo.config.RedisConfig",
+      "defaultValue": false,
+      "name": "redis.ssl",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.wowoduble.springbootdemo.config.RedisConfig",
+      "name": "redis.t-e-s-t-o-n-b-o-r-r-o-w",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.wowoduble.springbootdemo.config.RedisConfig",
+      "defaultValue": 0,
+      "name": "redis.timeout",
+      "type": "java.lang.Integer"
+    }
+  ]
+}
